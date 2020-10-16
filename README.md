@@ -5,6 +5,8 @@ application up and running.
 
 Things you may want to cover:
 
+This project is for users to make a Game object, then multiple users can write a review on it. 
+
 * Ruby version
 
 * System dependencies
