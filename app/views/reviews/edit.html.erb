@@ -1,0 +1,13 @@
+<h1>test</h1>
+
+<%= form_for(@review, url: game_review_path(@review.game_id), html: {method: :PATCH}) do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+
+<%= f.label :body %>
+<%= f.text_area :body %>
+
+<%= f.submit "Update review" %>
+<%end%>
+
+<%= button_to "Delete", game_review_path(@review), method: :delete %>

@@ -1,28 +1,17 @@
 class GamesController < ApplicationController
     def index
-        binding.pry
+        # binding.pry
         @games = Game.all
     end
 
-    def new
-      @game = Game.new
-    end
 
-    def create
-        @game = Game.new(game_params)
-        if @game.valid?
-          @game.save  
-
-          redirect_to game_path(@game)
-        else 
-            render :new
-        end
+    def show
+        @game = Game.find_by(id: params[:id])
+        # @reviews = Review.find_by(game_id: params[:id])
+    #   binding.pry  
     end
 
 
     private 
 
-    def game_params
-        params.require(:game).permit(:title, :genre)
-    end
 end

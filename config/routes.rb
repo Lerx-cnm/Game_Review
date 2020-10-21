@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'sessions#new'
-  resources :user, only: [:show] do
-    resources :reviews
+  root 'game#index'
+
+  resources :games, only: [:show, :index] do
+    resources :reviews, except: [:show]
   end
-  resources :games
   resources :users
   
   get '/login', to: 'sessions#new'

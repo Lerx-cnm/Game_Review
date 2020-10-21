@@ -13,5 +13,9 @@ class SessionsController < ApplicationController
         binding.pry
         redirect_to games_path
       end
+
+      def delete
+        session.clear
+      end
     end
 end
