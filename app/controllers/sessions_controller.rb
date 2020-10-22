@@ -13,9 +13,10 @@ class SessionsController < ApplicationController
         binding.pry
         redirect_to games_path
       end
+    end
 
       def delete
         session.clear
+        redirect_to login_path
       end
-    end
 end

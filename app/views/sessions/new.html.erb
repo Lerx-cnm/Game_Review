@@ -1,6 +1,6 @@
 <h1>Welcome to Game Review!</h1>
   <p>Please Login or Signup below: </p>
-
+  <p style = 'color:red'><%= @error %></p>
   <%= form_tag(login_path) do %>
 
     <%= label_tag(:username, "Username:") %>

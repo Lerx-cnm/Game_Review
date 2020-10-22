@@ -1,3 +1,5 @@
+<small style='color:red'><%=@error%></small>
+
 <%= form_for(@user) do |f|%>
   <%= f.label :username %>
   <%= f.text_field :username %>
@@ -7,3 +9,5 @@
 
   <%= f.submit "Signup" %>
   <%end%>
+
+  <br><button><%=link_to "Go to Login", login_path%></button>

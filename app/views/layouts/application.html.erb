@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+<!--    <div class="topnav">
+    <a class="active" href="/vacations">Home</a>
+    <a href="/vacations/new">Add a Vacation</a>
+    <a href="/visits/has_been">Places You Want to Visit</a>
+    <a href="/visits/has_not_been">Places You've Visited</a> -->
+    <a href='/logout'>Logout</a>
+  </div>
+<!---->
+
     <title>GameReview</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +20,8 @@
   </head>
 
   <body>
+  <div class= "wrapper">
     <%= yield %>
+    </div>
   </body>
 </html>

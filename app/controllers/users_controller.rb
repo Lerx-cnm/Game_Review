@@ -11,11 +11,16 @@ class UsersController < ApplicationController
     def create
         # binding.pry
         @user = User.new(user_params)
-        if @user.valid?
+        if User.find_by(username: user_params[:username])
+            @error = "You seem to already be in our system!"
+            render :'users/new'
+        elsif @user.valid?
             @user.save
-            redirect_to login_path
+            session[:user_id] = @user.id 
+            redirect_to games_path
         else
-            render :new
+            @error = "Please fill in any missing fields"
+            render :'users/new'
         end
     end
 

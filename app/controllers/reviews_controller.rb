@@ -23,7 +23,15 @@ class ReviewsController < ApplicationController
     def edit
 
       @review = Review.find_by(id: params[:id])
-      
+      if !logged_in?
+        binding.pry
+        @error = "Im sorry you dont have access to that."
+        render :'sessions/new'
+
+      elsif current_user.id != @review.user_id
+        @error = "I'm sorry, you don't have access to that."
+        render :'reviews/index'
+      end
       binding.pry
 
     end
@@ -36,9 +44,10 @@ class ReviewsController < ApplicationController
 
     def destroy
       @review = Review.find_by(id: params[:id])
-      binding.pry
+      path = @review.game_id
+    #   binding.pry
       @review.destroy
-      redirect_to game_reviews_path(params[:game_id])
+      redirect_to game_reviews_path(path)
     end
 
     private
