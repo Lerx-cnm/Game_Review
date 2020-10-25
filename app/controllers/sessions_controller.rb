@@ -8,10 +8,13 @@ class SessionsController < ApplicationController
     def create
       @user = User.find_by(username: params[:username])
       binding.pry
-      if params[:username] && @user.authenticate(params[:password])
+      if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id 
         binding.pry
         redirect_to games_path
+      else 
+        @error = "Please make sure all fields are filled in and valid."
+        render :new 
       end
     end
 
