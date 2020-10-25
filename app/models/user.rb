@@ -4,6 +4,6 @@ class User < ApplicationRecord
     has_many :reviews
     has_many :games, through: :reviews
 
-    validates :username, presence: true
-    validates :password, presence: true
+    validates :username, :password, presence: true
+    validates_uniqueness_of :username
 end

@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController 
+    before_action :require_login
     def index
       @reviews = Review.where(game_id: params[:game_id])
     #   binding.pry
@@ -23,17 +24,10 @@ class ReviewsController < ApplicationController
     def edit
 
       @review = Review.find_by(id: params[:id])
-      if !logged_in?
-        binding.pry
+      if current_user.id != @review.user_id
         @error = "Im sorry you dont have access to that."
-        render :'sessions/new'
-
-      elsif current_user.id != @review.user_id
-        @error = "I'm sorry, you don't have access to that."
         render :'reviews/index'
       end
-      binding.pry
-
     end
 
     def update
