@@ -1,7 +1,10 @@
+<%=@error%>
 <% @reviews.each do |e| %>
   <h2><%= e.title %></h2>
   <p><%= e.body %></p>
+  <% if session[:user_id] == e.user_id %>
   <%= link_to "Edit", edit_game_review_path(e.game_id, e.id) %>
+  <%end%>
   <%end%>
 
   <%= link_to "Go back to games", games_path %>

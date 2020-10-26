@@ -31,7 +31,7 @@ class ReviewsController < ApplicationController
       binding.pry
       if current_user.id != @review.user_id
         @error = "Im sorry you dont have access to that."
-        render :'reviews/index'
+        redirect_to game_reviews_path
       end
     end
 
