@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'game#index'
+  root 'sessions#new'
 
   resources :games, only: [:show, :index] do
     resources :reviews, except: [:show]
