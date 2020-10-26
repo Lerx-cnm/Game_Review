@@ -5,9 +5,9 @@ ruby '2.6.1'
 
 gem 'bcrypt'
 
-gem 'omniauth'
+# gem 'omniauth'
 
-gem 'omniauth-github'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 
 gem 'pry'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -47,6 +47,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'dotenv-rails'
 end
 
 group :test do
