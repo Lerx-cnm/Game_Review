@@ -16,15 +16,14 @@ class SessionsController < ApplicationController
       end
 
     def google
-      @user = User.find_or_create_by(email: auth["info"]["email"]) do |user|
-        user.name= auth["info"]["first_name"]
-        user.password= SecureRandom.hex(8)
+      @user = User.find_or_create_by(username: auth["info"]["first_name"]) do |user|
+        user.password = SecureRandom.hex(8)
       end
       if @user && @user.id
         session[:user_id] = @user.id
-        redirect_to custom_path
+        redirect_to games_path
       else
-        redirect_to another_path
+        redirect_to login_path
       end
     end
 
@@ -36,7 +35,7 @@ class SessionsController < ApplicationController
     private 
 
     def auth 
-      request.env['omniauth.ath']
+      request.env['omniauth.auth']
     end
 
 end
