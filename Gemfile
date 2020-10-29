@@ -5,9 +5,11 @@ ruby '2.6.1'
 
 gem 'bcrypt'
 
-# gem 'omniauth'
+gem 'omniauth'
 
-gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+gem 'dotenv-rails'
+
+gem 'omniauth-google-oauth2'
 
 gem 'pry'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
