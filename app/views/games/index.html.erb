@@ -1,5 +1,5 @@
 <h1>Game Review!</h1>
-<% @games.each do |game| %>
+<% Game.alphabitized.each do |game| %>
   <%= link_to game.title, game_path(game.id) %>
   <br><br>
   <%end%>

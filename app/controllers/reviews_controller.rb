@@ -1,8 +1,15 @@
 class ReviewsController < ApplicationController 
-    before_action :require_login
+    # before_action :require_login
 
     def index
-      @reviews = Review.where(game_id: params[:game_id])
+      # binding.pry
+      if params[:user_id]
+        @reviews = Review.where(user_id: params[:user_id])
+      elsif params[:game_id]
+        @reviews = Review.where(game_id: params[:game_id])
+      else
+        @reviews = Review.all 
+      end
     end
 
     def new
